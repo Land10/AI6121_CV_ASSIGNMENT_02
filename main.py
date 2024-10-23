@@ -15,8 +15,8 @@ if __name__ == '__main__':
     image_name = "triclopsi2"
 
     # Run the function:
-    for w in [3, 5, 7, 9]:
-        for d in range(6):
+    for w in [13, 21, 29]:
+        for d in range(1):
             ssd(window_size=w, max_disparity=d + 1, image_name=image_name, left_image=left_image, right_image=right_image)
 
-    stereo(image_name=image_name,left_image=left_image,right_image=right_image)
+    # stereo(image_name=image_name,left_image=left_image,right_image=right_image)
