@@ -15,13 +15,15 @@ if __name__ == '__main__':
     for w in [9, 15, 21, 27]:
         for d in range(1):
             for method in ["sad", "ssd", "ncc"] :
+                # If the color is True, the output will be color image, otherwise will be grayscale image.
                 disparity(
                     method=method, 
                     window_size=w, 
                     max_disparity=d + 1, 
                     image_name=image_name, 
                     left_image=left_image, 
-                    right_image=right_image
+                    right_image=right_image,
+                    color = True
                 )
 
     stereo(image_name=image_name,left_image=left_image,right_image=right_image)

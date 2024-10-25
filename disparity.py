@@ -20,7 +20,7 @@ def ncc(left_patch, right_patch) :
     else:
         return numerator / denominator
 
-def disparity(method, image_name, left_image, right_image, window_size = 5, max_disparity = 1):
+def disparity(method, image_name, left_image, right_image, window_size = 5, max_disparity = 1, color = False):
     # Set parameter
     max_disparity = 16 * max_disparity
     height, width = left_image.shape
@@ -66,6 +66,10 @@ def disparity(method, image_name, left_image, right_image, window_size = 5, max_
 
             # get the disparity
             disparity_map[y, x] = best_disparity * (255 // max_disparity)
+            # set the color
+            if color:
+                disparity_map = cv2.applyColorMap(disparity_map, cv2.COLORMAP_JET)
+
 
     # Save the image
     output_dir = f'result/{method}-{image_name}'
