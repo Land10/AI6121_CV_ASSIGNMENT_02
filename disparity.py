@@ -64,12 +64,12 @@ def disparity(method, image_name, left_image, right_image, window_size = 5, max_
                     print("No such method!")
                     exit()
 
-            # get the disparity
-            disparity_map[y, x] = best_disparity * (255 // max_disparity)
-            # set the color
-            if color:
-                disparity_map = cv2.applyColorMap(disparity_map, cv2.COLORMAP_JET)
+                # get the disparity
+                disparity_map[y, x] = best_disparity * (255 // max_disparity)
 
+    # set the color
+    if color:
+        disparity_map = cv2.applyColorMap(disparity_map, cv2.COLORMAP_JET)
 
     # Save the image
     output_dir = f'result/{method}-{image_name}'
